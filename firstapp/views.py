@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404
 from django.views.generic import View
 
 from .models import Post, Tag
+from .utils import ObjectDetailMixin
 
 
 def posts_list(request):
@@ -10,10 +11,9 @@ def posts_list(request):
     return render(request, 'firstapp/index.html', {'posts': posts})
 
 
-class PostDetail(View):
-    def get(self, request, slug):
-        post = get_object_or_404(Post, slug__iexact=slug)
-        return render(request, 'firstapp/post_detail.html', {'post': post})
+class PostDetail(ObjectDetailMixin, View):
+    model = Post
+    template = 'firstapp/post_detail.html'
 
 
 def tags_list(request):
@@ -21,7 +21,6 @@ def tags_list(request):
     return render(request, 'firstapp/tags_list.html', {'tags': tags})
 
 
-class TagDetail(View):
-    def get(self, request, slug):
-        tag = get_object_or_404(Tag, slug__iexact=slug)
-        return render(request, 'firstapp/tag_detail.html', {'tag': tag})
+class TagDetail(ObjectDetailMixin, View):
+    model = Tag
+    template = 'firstapp/tag_detail.html'

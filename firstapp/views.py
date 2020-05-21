@@ -1,9 +1,11 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 from django.shortcuts import get_object_or_404
 from django.views.generic import View
 
 from .models import Post, Tag
 from .utils import ObjectDetailMixin
+from .forms import TagForm
 
 
 def posts_list(request):
@@ -24,3 +26,17 @@ def tags_list(request):
 class TagDetail(ObjectDetailMixin, View):
     model = Tag
     template = 'firstapp/tag_detail.html'
+
+
+class TagCreate(View):
+    def get(self, request):
+        form = TagForm()
+        return render(request, 'firstapp/tag_create.html', {'form': form})
+
+    def post(self, request):
+        bound_form = TagForm(request.POST)
+
+        if bound_form.is_valid():
+            new_tag = bound_form.save()
+            return redirect(new_tag)
+        return render(request, 'firstapp/tag_create.html', {'form': bound_form})

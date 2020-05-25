@@ -7,6 +7,14 @@ def gen_slug(s):
     new_slug = slugify(s, allow_unicode=True)
     return new_slug + '-' + str(int(time()))
 
+from django.utils.text import slugify
+from time import time
+
+
+def  gen_slug(s):
+    new_slug = slugify(s, allow_unicode=True)
+    return new_slug + '-' + str(int(time()))
+
 
 class Post(models.Model):
     title = models.CharField(max_length=150, db_index=True)
@@ -18,10 +26,19 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('post_detail_url', kwargs={'slug': self.slug})
 
+<<<<<<< HEAD
 
     def save(self, *args, **kwargs):
         if not self.id:
             self.slug = gen_slug(self.title)
+=======
+    def get_update_url(self):
+        return reverse('post_update_url', kwargs={'slug': self.slug})
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = slugify(self.title)
+>>>>>>> dev
         super().save(*args, **kwargs)
 
     def __str__(self):
@@ -34,6 +51,9 @@ class Tag(models.Model):
 
     def get_absolute_url(self):
         return reverse('tag_detail_url', kwargs={'slug': self.slug})
+
+    def get_update_url(self):
+        return reverse('tag_update_url', kwargs={'slug': self.slug})
 
     def __str__(self):
         return self.title

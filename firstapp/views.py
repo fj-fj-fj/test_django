@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
-# from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404
 from django.views.generic import View
 
 from .models import Post, Tag
 from .forms import PostForm, TagForm
-from .utils import ObjectDetailMixin, ObjectCreateMixin
+from .utils import ObjectDetailMixin, ObjectCreateMixin, ObjectUpdateMixin
 
 
 def posts_list(request):
@@ -23,20 +23,10 @@ class PostCreate(ObjectCreateMixin, View):
     template = 'firstapp/post_create.html'
 
 
-class PostUpdate(View):
-    def get(self, request, slug):
-        post = Post.objects.get(slug__iexact=slug)
-        bound_form = TagForm(instance=post)
-        return render(request, 'firstapp/post_update_form.html', {'form': bound_form, 'post': post})
-
-    def post(self, request, slug):
-        post = Post.objects.get(slug__iexact=slug)
-        bound_form = PostForm(request.POST, instance=post)
-
-        if bound_form.is_valid():
-            new_post = bound_form.save()
-            return redirect(new_post)
-        return render(request, 'firstapp/post_update.html', {'form': bound_form, 'post': post})
+class PostUpdate(ObjectUpdateMixin, View):
+    model = Post
+    model_form = PostForm
+    template = 'firstapp/post_update_form.html'
 
 def tags_list(request):
     tags = Tag.objects.all()
@@ -53,17 +43,7 @@ class TagCreate(ObjectCreateMixin, View):
     template = 'firstapp/tag_create.html'
 
 
-class TagUpdate(View):
-    def get(self, request, slug):
-        tag = Tag.objects.get(slug__iexact=slug)
-        bound_form = TagForm(instance=tag)
-        return render(request, 'firstapp/tag_update_form.html', {'form': bound_form, 'tag': tag})
-
-    def post(self, request, slug):
-        tag = Tag.objects.get(slug__iexact=slug)
-        bound_form = TagForm(request.POST, instance=tag)
-
-        if bound_form.is_valid():
-            new_tag = bound_form.save()
-            return redirect(new_tag)
-        return render(request, 'firstapp/tag_update.html', {'form': bound_form, 'tag': tag})
+class TagUpdate(ObjectUpdateMixin, View):
+    model = Tag
+    model_form = TagForm
+    template = 'firstapp/tag_update_form.html'

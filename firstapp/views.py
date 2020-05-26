@@ -1,12 +1,11 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
-from django.urls import reverse
-from django.shortcuts import get_object_or_404
 from django.views.generic import View
 
 from .models import Post, Tag
 from .forms import PostForm, TagForm
-from .utils import ObjectDetailMixin, ObjectCreateMixin, ObjectUpdateMixin
+from .utils import (ObjectDetailMixin, ObjectCreateMixin,
+                    ObjectUpdateMixin, ObjectDeleteMixin)
 
 
 def posts_list(request):
@@ -30,15 +29,10 @@ class PostUpdate(ObjectUpdateMixin, View):
     template = 'firstapp/post_update_form.html'
 
 
-class PostDelete(View):
-    def get(self, request, slug):
-        post = Post.objects.get(slug__iexact=slug)
-        return render(request, 'firstapp/post_delete_form.html', {'post': post})
-
-    def post(self, request, slug):
-        post = Post.objects.get(slug__iexact=slug)
-        post.delete()
-        return redirect(reverse('posts_list_url'))
+class PostDelete(ObjectDeleteMixin, View):
+    model = Post
+    template = 'firstapp/post_delete_form.html'
+    redirect_url = 'posts_list_url'
 
 
 def tags_list(request):
@@ -62,12 +56,7 @@ class TagUpdate(ObjectUpdateMixin, View):
     template = 'firstapp/tag_update_form.html'
 
 
-class TagDelete(View):
-    def get(self, request, slug):
-        tag = Tag.objects.get(slug__iexact=slug)
-        return render(request, 'firstapp/tag_delete_form.html', {'tag': tag})
-
-    def post(self, request, slug):
-        tag = Tag.objects.get(slug__iexact=slug)
-        tag.delete()
-        return redirect(reverse('tags_list_url'))
+class TagDelete(ObjectDeleteMixin, View):
+    model = Tag
+    template = 'firstapp/tag_delete_form.html'
+    redirect_url = 'tags_list_url'

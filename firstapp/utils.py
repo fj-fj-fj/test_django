@@ -31,8 +31,6 @@ class ObjectCreateMixin:
             new_obj = bound_form.save()
             return redirect(new_obj)
         return render(request, self.template, {'form': bound_form})
-<<<<<<< HEAD
-=======
 
 
 class ObjectUpdateMixin:
@@ -53,9 +51,6 @@ class ObjectUpdateMixin:
             new_obj = bound_form.save()
             return redirect(new_obj)
         return render(request, self.template, {'form': bound_form, self.model.__name__.lower(): obj})
-<<<<<<< HEAD
->>>>>>> dev
-=======
 
 
 class ObjectDeleteMixin:
@@ -71,4 +66,3 @@ class ObjectDeleteMixin:
         obj = self.model.objects.get(slug__iexact=slug)
         obj.delete()
         return redirect(reverse(self.redirect_url))
->>>>>>> dev

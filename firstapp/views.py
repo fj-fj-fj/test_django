@@ -8,11 +8,15 @@ from .utils import (ObjectDetailMixin, ObjectCreateMixin,
                     ObjectUpdateMixin, ObjectDeleteMixin)
 
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.paginator import Paginator
 
 
 def posts_list(request):
     posts = Post.objects.all()
-    return render(request, 'firstapp/index.html', {'posts': posts})
+    paginator = Paginator(posts, 2)
+
+    page = paginator.get_page(1)
+    return render(request, 'firstapp/index.html', {'posts': page.object_list})
 
 
 class PostDetail(ObjectDetailMixin, View):

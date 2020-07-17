@@ -1,5 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -11,9 +12,11 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   <title>
+
     {% block title %}
       Blog
     {% endblock %}
+
   </title>
 </head>
 <body>
@@ -31,18 +34,17 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'tags_list_url' %}">Tags</a>
         </li>
+
         {% if user.is_authenticated %}
-        <li class="nav-item nav-link">
-          Hi,{{ user.username }}
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+          </li>
         {% else %}
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'login' %}">Log In</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Log In</a>
+          </li>
         {% endif %}
+
       </ul>
       <form class="form-inline my-2 my-lg-0" action="{% url 'posts_list_url' %}">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="search" name="search">
@@ -53,25 +55,35 @@
   <div class="contaiter mt-5">
     <div class="row">
       <div class="col-6 offset-md-2">
+
         {% block content %}
           void
         {% endblock %}
+
       </div>
     </div>
   </div>
   <div class="contaiter mt-5">
     <div class="row">
       <div class="col-6 offset-md-2">
+
         {% block paginat %}
         {% endblock %}
+
       </div>
     </div>
   </div>
+
   {% if request.user.is_authenticated and request.user.is_staff %}
     <div class="admin-panel align-items-center">
       <a href="/admin" class="btn btn-outline-info">Admin</a>
-      {% block admin-panel %}{% endblock %}
+
+      {% block admin-panel %}
+      {% endblock %}
+
     </div>
+
   {% endif %}
+  
 </body>
 </html>

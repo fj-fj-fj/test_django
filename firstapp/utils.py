@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.shortcuts import get_object_or_404
 
 from .models import Post, Tag
-from .forms import PostForm, TagForm
+from .forms import PostForm, TagForm, CommentForm
 
 
 class ObjectDetailMixin:
@@ -13,8 +13,18 @@ class ObjectDetailMixin:
 
     def get(self, request, slug):
         obj = get_object_or_404(self.model, slug__iexact=slug)
-        return render(request, self.template, {self.model.__name__.lower(): obj,
-                                'admin_object': obj, 'detail': True})
+        comment_list = obj.comments.order_by('-id')[:10]
+        comment_form = CommentForm()
+
+        context = {
+            self.model.__name__.lower(): obj,
+            'admin_object': obj,
+            'detail': True,
+            'comment_list': comment_list,
+            'comment_form': comment_form,
+        }
+        return render(request, self.template, context=context)
+
 
 
 class ObjectCreateMixin:

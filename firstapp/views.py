@@ -1,15 +1,21 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
+from django.shortcuts import get_object_or_404
 from django.views.generic import View
 
-from .models import Post, Tag
-from .forms import PostForm, TagForm
-from .utils import (ObjectDetailMixin, ObjectCreateMixin,
-                    ObjectUpdateMixin, ObjectDeleteMixin)
+from .models import Post, Tag, Comment
+from .forms import PostForm, TagForm, CommentForm
+from .utils import (
+    ObjectDetailMixin, ObjectCreateMixin, ObjectUpdateMixin, ObjectDeleteMixin
+)
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 from django.db.models import Q
+
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+
 
 def posts_list(request):
     search_query = request.GET.get('search', '')
@@ -44,9 +50,27 @@ def posts_list(request):
     return render(request, 'firstapp/index.html', context)
 
 
+def add_comment(request, slug):
+
+    if request.method == 'POST':
+        post = get_object_or_404(Post, slug__iexact=slug)
+        comment_form = CommentForm(request.POST or None)
+
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.post = post
+            new_comment.save()
+            return redirect('./')
+    # else:
+    #     comment_form = CommentForm()
+
+    return render(request, 'firstapp/post_detail.html', {'comment_form': comment_form})
+
+
 class PostDetail(ObjectDetailMixin, View):
     model = Post
     template = 'firstapp/post_detail.html'
+
 
 
 class PostCreate(LoginRequiredMixin, ObjectCreateMixin, View):

@@ -7,10 +7,30 @@
 
 
 {% block content %}
-  <h1 class="mt-5">
-    {{ post.title }}
-  </h1>
-  <p>
-    {{ post.body }}
-  </p>
+  <h1 class="mt-5">{{ post.title }}</h1>
+  <p>{{ post.body }}</p>
+
+{% for comment in comment_list %}
+<div class="comment">
+    <p class="info">
+        Comment {{ forloop.counter }} by "{{ comment.author }}" | {{ comment.created }}
+    </p>
+    {{ comment.text|linebreaks }}
+{% empty %}
+  <p>There are no comments yet</p>
+{% endfor %}
+
+
+{% if new_comment %}
+    <hr><h3>Your comment has been added</h3>
+{% else %}
+    <hr><h5>Add a new comment</h5>
+{% endif %}
+
+<form action="{% url 'add_comment_url' slug=post.slug %}" method="post">
+	{% csrf_token %}
+  {{ comment_form.as_p }}
+	<button type="submit" class="btn btn-primary">Оставить комментарий</button>
+</form>
+
 {% endblock  %}

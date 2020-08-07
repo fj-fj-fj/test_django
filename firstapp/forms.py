@@ -1,5 +1,5 @@
 from django import forms
-from .models import Tag, Post
+from .models import Tag, Post, Comment
 from django.core.exceptions import ValidationError
 
 
@@ -44,3 +44,14 @@ class TagForm(forms.ModelForm):
         if Tag.objects.filter(slug__iexact=new_slug).count():
             raise ValidationError(f'Slug must be unique! We have "{new_slug}" slug already')
         return new_slug
+
+class CommentForm(forms.ModelForm):
+
+    class Meta:
+        model = Comment
+        fields = ['author', 'text']
+
+        widgets = {
+            'author': forms.TextInput(attrs={'class': 'form-control'}),
+            'text': forms.Textarea(attrs={'class': 'form-control'}),
+        }

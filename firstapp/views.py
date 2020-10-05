@@ -61,8 +61,6 @@ def add_comment(request, slug):
             new_comment.post = post
             new_comment.save()
             return redirect('./')
-    # else:
-    #     comment_form = CommentForm()
 
     return render(request, 'firstapp/post_detail.html', {'comment_form': comment_form})
 

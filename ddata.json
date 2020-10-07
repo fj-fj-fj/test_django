@@ -1,0 +1,456 @@
+[
+{
+    "model": "firstapp.post",
+    "pk": 1,
+    "fields": {
+        "title": "First post",
+        "slug": "first-post",
+        "body": "Hello, World!",
+        "date_pub": "2020-05-14T09:45:39.268Z",
+        "tags": [
+            3,
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "firstapp.post",
+    "pk": 2,
+    "fields": {
+        "title": "Second post",
+        "slug": "second-slug",
+        "body": "Post.objects.create",
+        "date_pub": "2020-05-14T09:47:30.355Z",
+        "tags": []
+    }
+},
+{
+    "model": "firstapp.post",
+    "pk": 3,
+    "fields": {
+        "title": "python3",
+        "slug": "python3",
+        "body": "aaaaaa",
+        "date_pub": "2020-05-22T10:24:11.324Z",
+        "tags": [
+            3,
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "firstapp.post",
+    "pk": 5,
+    "fields": {
+        "title": "gen",
+        "slug": "gen-1590402070",
+        "body": "aaaaa",
+        "date_pub": "2020-05-25T10:21:10.171Z",
+        "tags": [
+            3
+        ]
+    }
+},
+{
+    "model": "firstapp.post",
+    "pk": 8,
+    "fields": {
+        "title": "dev bra",
+        "slug": "braaa",
+        "body": "dev b",
+        "date_pub": "2020-05-25T12:48:18.513Z",
+        "tags": []
+    }
+},
+{
+    "model": "firstapp.post",
+    "pk": 9,
+    "fields": {
+        "title": "adf",
+        "slug": "adf",
+        "body": "asdfdsa",
+        "date_pub": "2020-06-03T08:40:38.820Z",
+        "tags": [
+            3,
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "firstapp.post",
+    "pk": 10,
+    "fields": {
+        "title": "aaaaa",
+        "slug": "aaaaa",
+        "body": "adsfadv",
+        "date_pub": "2020-06-03T08:40:50.895Z",
+        "tags": [
+            2
+        ]
+    }
+},
+{
+    "model": "firstapp.post",
+    "pk": 11,
+    "fields": {
+        "title": "bdv",
+        "slug": "bdv",
+        "body": "dvaewwgv",
+        "date_pub": "2020-06-03T08:41:02.208Z",
+        "tags": [
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "firstapp.post",
+    "pk": 12,
+    "fields": {
+        "title": "af",
+        "slug": "af",
+        "body": "fads",
+        "date_pub": "2020-06-03T08:41:26.916Z",
+        "tags": []
+    }
+},
+{
+    "model": "firstapp.post",
+    "pk": 13,
+    "fields": {
+        "title": "asdf",
+        "slug": "asdf",
+        "body": "dsaf",
+        "date_pub": "2020-06-03T08:41:34.030Z",
+        "tags": [
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "firstapp.post",
+    "pk": 14,
+    "fields": {
+        "title": "df",
+        "slug": "df",
+        "body": "d",
+        "date_pub": "2020-06-03T08:41:41.742Z",
+        "tags": []
+    }
+},
+{
+    "model": "firstapp.post",
+    "pk": 15,
+    "fields": {
+        "title": "adfa",
+        "slug": "adfa",
+        "body": "fd",
+        "date_pub": "2020-06-03T08:41:51.987Z",
+        "tags": []
+    }
+},
+{
+    "model": "firstapp.tag",
+    "pk": 1,
+    "fields": {
+        "title": "django",
+        "slug": "django"
+    }
+},
+{
+    "model": "firstapp.tag",
+    "pk": 2,
+    "fields": {
+        "title": "git",
+        "slug": "git"
+    }
+},
+{
+    "model": "firstapp.tag",
+    "pk": 3,
+    "fields": {
+        "title": "atom",
+        "slug": "atom"
+    }
+},
+{
+    "model": "firstapp.comment",
+    "pk": 1,
+    "fields": {
+        "post": 15,
+        "author": "john",
+        "text": "hello world",
+        "created": "2020-07-27T12:54:45.289Z",
+        "updated": "2020-07-27T12:54:45.300Z",
+        "active": true
+    }
+},
+{
+    "model": "firstapp.comment",
+    "pk": 2,
+    "fields": {
+        "post": 14,
+        "author": "john",
+        "text": "comment_1",
+        "created": "2020-08-05T14:01:26.747Z",
+        "updated": "2020-08-05T14:01:26.747Z",
+        "active": true
+    }
+},
+{
+    "model": "firstapp.comment",
+    "pk": 3,
+    "fields": {
+        "post": 14,
+        "author": "mat",
+        "text": "comment_1",
+        "created": "2020-08-05T15:22:13.443Z",
+        "updated": "2020-08-05T15:22:13.443Z",
+        "active": true
+    }
+},
+{
+    "model": "firstapp.comment",
+    "pk": 4,
+    "fields": {
+        "post": 14,
+        "author": "mat",
+        "text": "comment_1",
+        "created": "2020-08-05T15:23:53.620Z",
+        "updated": "2020-08-05T15:23:53.620Z",
+        "active": true
+    }
+},
+{
+    "model": "firstapp.comment",
+    "pk": 5,
+    "fields": {
+        "post": 14,
+        "author": "lev",
+        "text": "comment_1",
+        "created": "2020-08-05T15:31:17.717Z",
+        "updated": "2020-08-05T15:31:17.717Z",
+        "active": true
+    }
+},
+{
+    "model": "firstapp.comment",
+    "pk": 6,
+    "fields": {
+        "post": 14,
+        "author": "lev",
+        "text": "comment_1",
+        "created": "2020-08-05T15:31:17.724Z",
+        "updated": "2020-08-05T15:31:17.724Z",
+        "active": true
+    }
+},
+{
+    "model": "firstapp.comment",
+    "pk": 7,
+    "fields": {
+        "post": 14,
+        "author": "lev",
+        "text": "comment_1",
+        "created": "2020-08-05T15:43:26.517Z",
+        "updated": "2020-08-05T15:43:26.517Z",
+        "active": true
+    }
+},
+{
+    "model": "firstapp.comment",
+    "pk": 8,
+    "fields": {
+        "post": 14,
+        "author": "lev",
+        "text": "comment_1",
+        "created": "2020-08-05T15:43:26.520Z",
+        "updated": "2020-08-05T15:43:26.520Z",
+        "active": true
+    }
+},
+{
+    "model": "firstapp.comment",
+    "pk": 9,
+    "fields": {
+        "post": 14,
+        "author": "lev",
+        "text": "comment_1",
+        "created": "2020-08-05T15:51:26.550Z",
+        "updated": "2020-08-05T15:51:26.550Z",
+        "active": true
+    }
+},
+{
+    "model": "firstapp.comment",
+    "pk": 10,
+    "fields": {
+        "post": 14,
+        "author": "lev",
+        "text": "comment_1",
+        "created": "2020-08-05T15:51:26.554Z",
+        "updated": "2020-08-05T15:51:26.554Z",
+        "active": true
+    }
+},
+{
+    "model": "firstapp.comment",
+    "pk": 11,
+    "fields": {
+        "post": 14,
+        "author": "anon1",
+        "text": "c",
+        "created": "2020-08-05T16:55:00.067Z",
+        "updated": "2020-08-05T16:55:00.067Z",
+        "active": true
+    }
+},
+{
+    "model": "firstapp.comment",
+    "pk": 12,
+    "fields": {
+        "post": 14,
+        "author": "anon1",
+        "text": "c",
+        "created": "2020-08-05T16:55:00.071Z",
+        "updated": "2020-08-05T16:55:00.071Z",
+        "active": true
+    }
+},
+{
+    "model": "firstapp.comment",
+    "pk": 13,
+    "fields": {
+        "post": 14,
+        "author": "anon2",
+        "text": "comment_1_2",
+        "created": "2020-08-07T10:36:48.392Z",
+        "updated": "2020-08-07T10:36:48.392Z",
+        "active": true
+    }
+},
+{
+    "model": "firstapp.comment",
+    "pk": 14,
+    "fields": {
+        "post": 14,
+        "author": "anon2",
+        "text": "comment_1_2",
+        "created": "2020-08-07T10:36:48.395Z",
+        "updated": "2020-08-07T10:36:48.395Z",
+        "active": true
+    }
+},
+{
+    "model": "firstapp.comment",
+    "pk": 15,
+    "fields": {
+        "post": 14,
+        "author": "anon2",
+        "text": "ssss",
+        "created": "2020-08-07T11:19:17.085Z",
+        "updated": "2020-08-07T11:19:17.085Z",
+        "active": true
+    }
+},
+{
+    "model": "firstapp.comment",
+    "pk": 16,
+    "fields": {
+        "post": 14,
+        "author": "anon2",
+        "text": "ssss",
+        "created": "2020-08-07T11:22:02.640Z",
+        "updated": "2020-08-07T11:22:02.640Z",
+        "active": true
+    }
+},
+{
+    "model": "firstapp.comment",
+    "pk": 17,
+    "fields": {
+        "post": 14,
+        "author": "anon2",
+        "text": "ssss",
+        "created": "2020-08-07T11:28:41.070Z",
+        "updated": "2020-08-07T11:28:41.070Z",
+        "active": true
+    }
+},
+{
+    "model": "firstapp.comment",
+    "pk": 18,
+    "fields": {
+        "post": 14,
+        "author": "anon2",
+        "text": "ssss",
+        "created": "2020-08-07T11:29:29.562Z",
+        "updated": "2020-08-07T11:29:29.563Z",
+        "active": true
+    }
+},
+{
+    "model": "firstapp.comment",
+    "pk": 19,
+    "fields": {
+        "post": 14,
+        "author": "anon2",
+        "text": "ssss",
+        "created": "2020-08-07T11:31:05.484Z",
+        "updated": "2020-08-07T11:31:05.484Z",
+        "active": true
+    }
+},
+{
+    "model": "firstapp.comment",
+    "pk": 20,
+    "fields": {
+        "post": 15,
+        "author": "mat",
+        "text": "comment_by_mat_3",
+        "created": "2020-08-07T11:42:57.420Z",
+        "updated": "2020-08-07T11:42:57.420Z",
+        "active": true
+    }
+},
+{
+    "model": "firstapp.comment",
+    "pk": 21,
+    "fields": {
+        "post": 15,
+        "author": "mat",
+        "text": "comment_by_mat_4",
+        "created": "2020-08-07T11:44:45.150Z",
+        "updated": "2020-08-07T11:44:45.150Z",
+        "active": true
+    }
+},
+{
+    "model": "firstapp.comment",
+    "pk": 22,
+    "fields": {
+        "post": 15,
+        "author": "lev",
+        "text": "comment_by_lev_1",
+        "created": "2020-08-07T11:45:05.743Z",
+        "updated": "2020-08-07T11:45:05.743Z",
+        "active": true
+    }
+},
+{
+    "model": "firstapp.comment",
+    "pk": 23,
+    "fields": {
+        "post": 15,
+        "author": "anon1",
+        "text": "comment_by_anon1_1",
+        "created": "2020-08-07T11:48:34.221Z",
+        "updated": "2020-08-07T11:48:34.221Z",
+        "active": true
+    }
+}
+]

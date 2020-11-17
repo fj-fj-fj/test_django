@@ -1,0 +1,20 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Channels{% endblock %}
+
+{% block blog %}
+
+    {% if user.is_authenticated %}
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'profile_url' %}">Home</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+      </li>
+    
+    {% endif %}
+
+{% endblock %}

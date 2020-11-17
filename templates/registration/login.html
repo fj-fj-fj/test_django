@@ -1,40 +1,66 @@
-{% extends 'base.html' %}
+{% extends  'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Log in{% endblock %}
+
+{% block blog %}
+
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'signup' %}">Sing Up</a>
+  <li>
+    
+{% endblock %}
+
 
 {% block content %}
 
-{% if form.errors %}
-  <p>Your username and password didn't match. Please try again.</p>
-{% endif %}
+  <div class="card">
 
-{% if next %}
-  {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
-  {% else %}
-    <p>Please login to see this page.</p>
-  {% endif %}
-{% endif %}
+    <div class="card-body">
 
-<form method="post" action="{% url 'login' %}">
-{% csrf_token %}
-<table>
+    <h4 class="card-title">Авторизация</h4>
+    
+      <form method="POST">
 
-<tr>
-  <td>{{ form.username.label_tag }}</td>
-  <td>{{ form.username }}</td>
-</tr>
+        {% csrf_token %}
 
-<tr>
-  <td>{{ form.password.label_tag }}</td>
-  <td>{{ form.password }}</td>
-</tr>
-</table>
+        <input type="hidden" name="next" value="{{ next }}">
+        
+        {{ form|crispy }}
+        
+        <button type="submit" class="btn btn-primary btn-block">Log in</button>
 
-<input type="submit" value="login" />
-<input type="hidden" name="next" value="{{ next }}" />
-</form>
-
-{# Assumes you setup the password_reset view in your URLconf #}
-<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+      </form>
+    
+    </div>
+    
+  </div>
 
 {% endblock %}
+
+
+<!-- 
+    <form method="POST" action="{% url 'login' %}">
+    {% csrf_token %}
+
+    <table>
+      <tr>
+        <td>{{ form.username.label_tag }}</td>
+        <td>{{ form.username }}</td>
+      </tr>
+
+      <tr>
+        <td>{{ form.password.label_tag }}</td>
+        <td>{{ form.password }}</td>
+      </tr>  
+    </table>
+
+    <input type="submit" value="login" />
+    <input type="hidden" name="next" value="{{ next }}" />
+
+    {# Assumes you setup the password_reset view in your URLconf #}
+    <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+
+  </form>
+-->

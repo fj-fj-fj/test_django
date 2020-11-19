@@ -3,15 +3,93 @@ Django==3.0.6
 django-grappelli==2.14.2
 pytz==2020.1
 sqlparse==0.3.1
-#
-# (venv) project>pipdeptree
-#
-# Django==3.0.6
-#   - asgiref [required: ~=3.2, installed: 3.2.7]
-#   - pytz [required: Any, installed: 2020.1]
-#   - sqlparse [required: >=0.2.2, installed: 0.3.1]
+channels-redis==3.2.0
+django-crispy-forms==1.10.0
+django-extensions==3.0.9
+django-filter==2.4.0
+django-toolbelt==0.0.1
+djangorestframework==3.12.2
+Markdown==3.3.3
+pyOpenSSL==19.1.0
+service-identity==18.1.0
+wheel==0.34.2
+
+
+# pipdeptree
+# channels-redis==3.2.0
+#   - aioredis [required: ~=1.0, installed: 1.3.1]
+#     - async-timeout [required: Any, installed: 3.0.1]
+#     - hiredis [required: Any, installed: 1.1.0]
+#   - asgiref [required: >=3.2.10,<4, installed: 3.3.1]
+#   - channels [required: <4, installed: 3.0.2]
+#     - asgiref [required: >=3.2.10,<4, installed: 3.3.1]
+#     - daphne [required: >=3.0,<4, installed: 3.0.1]
+#       - asgiref [required: >=3.2.10,<4, installed: 3.3.1]
+#       - autobahn [required: >=0.18, installed: 20.7.1]
+#         - cryptography [required: >=2.7, installed: 3.2.1]
+#           - cffi [required: >=1.8,!=1.11.3, installed: 1.14.3]
+#             - pycparser [required: Any, installed: 2.20]
+#           - six [required: >=1.4.1, installed: 1.15.0]
+#         - txaio [required: >=20.3.1, installed: 20.4.1]
+#       - twisted [required: >=18.7, installed: 20.3.0]
+#         - attrs [required: >=19.2.0, installed: 20.3.0]
+#         - Automat [required: >=0.3.0, installed: 20.2.0]
+#           - attrs [required: >=19.2.0, installed: 20.3.0]
+#           - six [required: Any, installed: 1.15.0]
+#         - constantly [required: >=15.1, installed: 15.1.0]
+#         - hyperlink [required: >=17.1.1, installed: 20.0.1]
+#           - idna [required: >=2.5, installed: 2.10]
+#         - incremental [required: >=16.10.1, installed: 17.5.0]
+#         - PyHamcrest [required: >=1.9.0,!=1.10.0, installed: 2.0.2]
+#         - zope.interface [required: >=4.4.2, installed: 5.2.0]
+#           - setuptools [required: Any, installed: 46.1.3]
+#     - Django [required: >=2.2, installed: 3.0.6]
+#       - asgiref [required: ~=3.2, installed: 3.3.1]
+#       - pytz [required: Any, installed: 2020.1]
+#       - sqlparse [required: >=0.2.2, installed: 0.3.1]
+#   - msgpack [required: ~=1.0, installed: 1.0.0]
+# django-crispy-forms==1.10.0
+# django-extensions==3.0.9
+# django-filter==2.4.0
+#   - Django [required: >=2.2, installed: 3.0.6]
+#     - asgiref [required: ~=3.2, installed: 3.3.1]
+#     - pytz [required: Any, installed: 2020.1]
+#     - sqlparse [required: >=0.2.2, installed: 0.3.1]
 # django-grappelli==2.14.2
+# django-toolbelt==0.0.1
+#   - dj-database-url [required: Any, installed: 0.5.0]
+#   - dj-static [required: Any, installed: 0.0.6]
+#     - static3 [required: Any, installed: 0.7.0]
+#   - django [required: Any, installed: 3.0.6]
+#     - asgiref [required: ~=3.2, installed: 3.3.1]
+#     - pytz [required: Any, installed: 2020.1]
+#     - sqlparse [required: >=0.2.2, installed: 0.3.1]
+#   - gunicorn [required: Any, installed: 20.0.4]
+#     - setuptools [required: >=3.0, installed: 46.1.3]
+#   - psycopg2 [required: Any, installed: 2.8.6]
+# djangorestframework==3.12.2
+#   - django [required: >=2.2, installed: 3.0.6]
+#     - asgiref [required: ~=3.2, installed: 3.3.1]
+#     - pytz [required: Any, installed: 2020.1]
+#     - sqlparse [required: >=0.2.2, installed: 0.3.1]
+# Markdown==3.3.3
+#   - importlib-metadata [required: Any, installed: 2.0.0]
+#     - zipp [required: >=0.5, installed: 3.4.0]
 # pipdeptree==1.0.0
 #   - pip [required: >=6.0.0, installed: 20.2.4]
-# setuptools==46.1.3
+# pyOpenSSL==19.1.0
+#   - cryptography [required: >=2.8, installed: 3.2.1]
+#     - cffi [required: >=1.8,!=1.11.3, installed: 1.14.3]
+#       - pycparser [required: Any, installed: 2.20]
+#     - six [required: >=1.4.1, installed: 1.15.0]
+#   - six [required: >=1.5.2, installed: 1.15.0]
+# service-identity==18.1.0
+#   - attrs [required: >=16.0.0, installed: 20.3.0]
+#   - cryptography [required: Any, installed: 3.2.1]
+#     - cffi [required: >=1.8,!=1.11.3, installed: 1.14.3]
+#       - pycparser [required: Any, installed: 2.20]
+#     - six [required: >=1.4.1, installed: 1.15.0]
+#   - pyasn1 [required: Any, installed: 0.4.8]
+#   - pyasn1-modules [required: Any, installed: 0.2.8]
+#     - pyasn1 [required: >=0.4.6,<0.5.0, installed: 0.4.8]
 # wheel==0.34.2

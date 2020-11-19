@@ -1,6 +1,5 @@
 from .production import *
 try:
-    # from .local import *
-    from .settings import *
+    from .local import *
 except:
     pass

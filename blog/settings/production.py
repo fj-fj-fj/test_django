@@ -16,7 +16,6 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['vdim.herokuapp.com']
 
-
 INSTALLED_APPS = [
     'grappelli',
     'django.contrib.admin',
@@ -26,11 +25,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # Apps
     'firstapp',
     'chatapp',  
 
-    # 3rd party
     'rest_framework',
     'channels',
     'crispy_forms'
@@ -38,7 +35,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -67,7 +63,7 @@ TEMPLATES = [
     },
 ]
 
-# WSGI_APPLICATION = 'blog.wsgi.application'
+WSGI_APPLICATION = 'blog.wsgi.application'
 ASGI_APPLICATION = 'blog.asgi.application'
 
 DATABASES = {
@@ -87,22 +83,7 @@ import dj_database_url
 db = dj_database_url.config()
 DATABASES['default'].update(db)
 
-
-
 AUTH_PASSWORD_VALIDATORS = []
-#     {
-#         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-#     },
-#     {
-#         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-#     },
-#     {
-#         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-#     },
-#     {
-#         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-#     },
-# ]
 
 MESSAGES_TO_LOAD = 15
 
@@ -112,7 +93,6 @@ CHANNEL_LAYERS = {
         "ROUTING": "blog.routing.channel_routing",
     },
 }
-
 
 LANGUAGE_CODE = 'ru-RU'
 
@@ -124,17 +104,13 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'run', 'static_root')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'run', 'media_root')
 MEDIA_URL = '/media/'
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'), 
-    C:\dev\test_django\app\static
+    os.path.join(BASE_DIR, 'static')
 ]
 
 STATIC_URL = '/static/'
@@ -142,11 +118,8 @@ ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 
 LOGIN_REDIRECT_URL = '/'
-# LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL = '/login/'
 
-# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage' # gzip
-# storage backend
 django_heroku.settings(locals())
 
 ASGI_APPLICATION = 'blog.routing.application'

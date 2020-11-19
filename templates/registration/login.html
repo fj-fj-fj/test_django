@@ -1,40 +1,47 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+{% load static %}
 
-{% block content %}
+{% block title %}Log In{% endblock %}
 
-{% if form.errors %}
-  <p>Your username and password didn't match. Please try again.</p>
-{% endif %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" type="text/css"/>
+{% endblock %}
 
-{% if next %}
-  {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
-  {% else %}
-    <p>Please login to see this page.</p>
-  {% endif %}
-{% endif %}
+{% block main %}
+    <div class="container">
 
-<form method="post" action="{% url 'login' %}">
-{% csrf_token %}
-<table>
+        <form class="form-signin" method="post">
+            {% csrf_token %}
 
-<tr>
-  <td>{{ form.username.label_tag }}</td>
-  <td>{{ form.username }}</td>
-</tr>
+            <h2 class="form-signin-heading">Please log in</h2>
 
-<tr>
-  <td>{{ form.password.label_tag }}</td>
-  <td>{{ form.password }}</td>
-</tr>
-</table>
+            <br>
 
-<input type="submit" value="login" />
-<input type="hidden" name="next" value="{{ next }}" />
-</form>
+            {% if form.errors %}
+                <div class="span3 alert alert-danger">
+                    <h4>Error!</h4>
+                    Please enter a correct username and password. Fields
+                    are case-sensitive.
+                </div>
+            {% endif %}
 
-{# Assumes you setup the password_reset view in your URLconf #}
-<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+            <label for="username" class="sr-only">Username</label>
+            <input type="text" id="username" class="form-control"
+                   name="username" placeholder="Username"
+                   value="{{ form.username.value|default_if_none:"" }}"
+                   required autofocus>
 
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" id="password" class="form-control"
+                   name="password" placeholder="Password" required>
+
+            <br>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">
+                Log In
+            </button>
+
+        </form>
+
+    </div> <!-- /container -->
 {% endblock %}

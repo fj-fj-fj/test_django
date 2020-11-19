@@ -34,7 +34,6 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['vdim.herokuapp.com']
 
-
 # Application definition
 
 INSTALLED_APPS = [

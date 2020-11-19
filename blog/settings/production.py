@@ -125,12 +125,12 @@ USE_L10N = True
 USE_TZ = True
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'run', 'static_root')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'run', 'static_root')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'run', 'media_root')
 MEDIA_URL = '/media/'
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
@@ -144,7 +144,8 @@ LOGIN_REDIRECT_URL = '/'
 # LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL = '/login/'
 
-
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage' # gzip
+# storage backend
 django_heroku.settings(locals())
 
 ASGI_APPLICATION = 'blog.routing.application'

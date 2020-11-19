@@ -1,0 +1,35 @@
+{% extends  'base.html' %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Sign In{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" type="text/css"/>
+{% endblock %}
+
+{% block main %}
+
+  <div class="container">
+
+    <form method="post">
+        {% csrf_token %}
+
+        <h2 class="form-signin-heading">Registration</h2>
+
+        <br>
+        <input type="hidden" name="next" value="{{ next }}">
+
+        {{ form|crispy }}
+      
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">
+            Sign In
+        </button>
+
+    </form>
+
+</div> <!-- /container -->
+
+{% endblock %}

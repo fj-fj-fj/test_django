@@ -1,6 +1,5 @@
 from django.apps import AppConfig
 
 
-class ChatappConfig(AppConfig):
+class CoreConfig(AppConfig):
     name = 'chatapp'
-    verbose_name = 'ЧАТ'

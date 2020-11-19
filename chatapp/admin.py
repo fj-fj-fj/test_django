@@ -1,17 +1,14 @@
-from django.contrib import admin
+from django.contrib.admin import ModelAdmin, site
+from chatapp.models import MessageModel
 
 
+class MessageModelAdmin(ModelAdmin):
+    readonly_fields = ('timestamp',)
+    search_fields = ('id', 'body', 'user__username', 'recipient__username')
+    list_display = ('id', 'user', 'recipient', 'timestamp', 'characters')
+    list_display_links = ('id',)
+    list_filter = ('user', 'recipient')
+    date_hierarchy = 'timestamp'
 
 
-
-# from .models import Post, Tag, Comment
-
-# admin.site.register(Post)
-# admin.site.register(Tag)
-
-# class CommentAdmin(admin.ModelAdmin):
-#     list_display = ('author', 'post', 'created', 'active')
-#     list_filter = ('active', 'created', 'updated')
-#     search_fields = ('author', 'text')
-    
-# admin.site.register(Comment, CommentAdmin)
+site.register(MessageModel, MessageModelAdmin)

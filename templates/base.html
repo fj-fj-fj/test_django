@@ -24,14 +24,28 @@
 
 {% block blog %}
 {% endblock %}
+
 {% block search_local %}
 {% endblock %}
+
 {% block content %}
+kek
 {% endblock %}
+
 {% block paginat %}
 {% endblock %}
-{% block admin-panel %}
-{% endblock %}
+
+
+{% if request.user.is_authenticated and request.user.is_staff %}
+    <div class="admin-panel align-items-center">
+    <a href="/admin" class="btn btn-outline-info">Admin</a>
+
+    {% block admin-panel %}
+    {% endblock %}
+
+    </div>
+
+{% endif %}
 
 </body>
 </html>
